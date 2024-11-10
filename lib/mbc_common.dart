@@ -9,6 +9,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 part 'exception/failure.dart';
 part 'exception/mixin/dio_exception_mixin.dart';
@@ -17,6 +18,6 @@ part 'extensions/string_hardcoded.dart';
 
 part 'localization/app_localization.dart';
 
-part 'constants//color_constants.dart';
+part 'constants/color_constants.dart';
 
 part 'widgets/skelton_loader/widget_skeleton_item_loader.dart';
