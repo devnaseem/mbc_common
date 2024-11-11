@@ -2,6 +2,7 @@ library mbc_common;
 
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:mbc_common/widgets/skelton_loader/skeleton_text.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:equatable/equatable.dart';

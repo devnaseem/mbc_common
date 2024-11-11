@@ -20,15 +20,25 @@ class AppLocalizations {
 
   Future<bool> load() async {
     // Load the language JSON file from the "lang" folder
+    //if loading from angular, then append assets/flutter/assets to the base URL
+
+    if(kIsWasm){
+      print("loading from wasm");
+    }
+    if(kIsWeb){
+      print("loading from web");
+
+    }
+
     String jsonString =
-        await rootBundle.loadString('packages/mbc_common/lang/${locale.languageCode}.json', );
+        await rootBundle.loadString(kIsWeb?'assets/flutter/assets/packages/mbc_common/lang/${locale.languageCode}.json': 'packages/mbc_common/lang/${locale.languageCode}.json', );
     Map<String, dynamic> jsonMap = json.decode(jsonString);
 
     _localizedStrings = jsonMap.map((key, value) {
       return MapEntry(key, value.toString());
     });
 
-    String jsonEnglishString = await rootBundle.loadString('packages/mbc_common/lang/en.json');
+    String jsonEnglishString = await rootBundle.loadString(kIsWeb?'assets/flutter/assets/packages/mbc_common/lang/en.json': 'packages/mbc_common/lang/en.json');
     Map<String, dynamic> jsonEnglishMap = json.decode(jsonEnglishString);
 
     _localizedEnglishStrings = jsonEnglishMap.map((key, value) {
