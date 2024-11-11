@@ -21,14 +21,14 @@ class AppLocalizations {
   Future<bool> load() async {
     // Load the language JSON file from the "lang" folder
     String jsonString =
-        await rootBundle.loadString('lang/${locale.languageCode}.json');
+        await rootBundle.loadString('packages/mbc_common/lang/${locale.languageCode}.json', );
     Map<String, dynamic> jsonMap = json.decode(jsonString);
 
     _localizedStrings = jsonMap.map((key, value) {
       return MapEntry(key, value.toString());
     });
 
-    String jsonEnglishString = await rootBundle.loadString('lang/en.json');
+    String jsonEnglishString = await rootBundle.loadString('packages/mbc_common/lang/en.json');
     Map<String, dynamic> jsonEnglishMap = json.decode(jsonEnglishString);
 
     _localizedEnglishStrings = jsonEnglishMap.map((key, value) {
